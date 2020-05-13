@@ -1,10 +1,25 @@
-def reverse():
-    print("This programm will reverse the given string")
-    string = input("Please enter a string: ")
+class ReverseString():
+    def __init__(self, string):
+        self.string = string
 
-    reversed = string[::-1]
-    
-    return reversed
+    def GUI(self):
+        self.string = input("Please enter a string:\n")
 
-if __name__ == "__main__":
-    print(reverse())
+    def reverse(self, given_string):
+        return given_string[::-1]
+
+    def play_again(self):
+        pass
+
+    def main(self):
+        if self.string == "":
+            self.GUI()
+
+        reversed_string = self.reverse(self.string)
+        print(f"Your given string reversed looks like this: \n{reversed_string}")
+
+reverser = ReverseString("Hallo")
+reverser.main()
+
+reverser02 = ReverseString("")
+reverser02.main()
