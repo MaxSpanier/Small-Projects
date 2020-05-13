@@ -1,15 +1,28 @@
 import random, sys
 
-def roll():
-    number = random.randint(1, 6)
-    print(f"You rolled a {number}")
-    again = input("Roll again? y/n\n")
-    print("-----------------------")
-    if again == "y":
-        roll()
-    else:
-        sys.exit()
+class DiceRoller():
+    def __init__(self):
+        pass
+    
+    def roll(self):
+        number = random.randint(1, 6)
+        return number
 
-if __name__ == "__main__":
-    print("-----------------------")
-    roll()
+    def play_again(self):
+        again = input("Roll again? y/n\n")
+        print("-----------------------")
+        if again == "y":
+            self.play()
+        elif again == "n":
+            sys.exit()
+        else:
+            print("Plese enter a valid answer.")
+            self.play_again()
+
+    def play(self):
+        rolled = self.roll()
+        print(f"You rolled a {rolled}")
+        self.play_again()
+
+roller = DiceRoller()
+roller.play()
